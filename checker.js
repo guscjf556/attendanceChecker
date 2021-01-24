@@ -1,3 +1,4 @@
+// ************* => 각 기수마다 고쳐야할 부분
 const parse = require('csv-parse');
 const fs = require('fs');
 
@@ -5,10 +6,10 @@ const fs = require('fs');
 fs.writeFileSync(`time.txt`,"");
 fs.writeFileSync(`log.txt`,"");
 
-const reportData = fs.readFileSync('./reports/report1.csv'); //기수에 해당하는 csv 불러와야함!!
+const reportData = fs.readFileSync('./reports/report2.csv'); //**************기수에 해당하는 csv 불러와야함!!
 const ParticipantsData = fs.readFileSync('./nameList.csv');
-const firstDay = "2021.1.18";
-const secondDay = "2021.1.19";
+const firstDay = "2021.1.20"; // **************연수 시작 날짜 수정해야 함
+const secondDay = "2021.1.21"; // *************연수 종료 날짜 수정해야함
 
 //참가자 별 시간 조정 함수
 //입장 시간 조정
@@ -78,7 +79,7 @@ for(let i = 0; i < 8; i++){
   let participants = [];
   parse(ParticipantsData, (err, data) => {
     data.forEach(row => {
-      if(row[0].includes(`1기`) && row[2].includes(`${i+1}`)) { //기수 수정해야함!!
+      if(row[0].includes(`2기`) && row[2].includes(`${i+1}`)) { //************기수 수정해야함!!**************
         participants.push(row);
       }
     });
